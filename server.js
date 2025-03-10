@@ -1,3 +1,6 @@
+/* eslint no-restricted-globals: ["error", "event"] */
+/* global process */
+
 import fs from 'node:fs';
 import path from 'node:path';
 import { createServer } from 'node:http';
@@ -41,7 +44,6 @@ async function createCustomServer() {
       );
 
       let render, template;
-      console.log('render', IS_PRODUCTION)
 
       if (IS_PRODUCTION) {
         template = index;
@@ -62,11 +64,14 @@ async function createCustomServer() {
     }
   });
 
-  io.on('connection', () => {
+  io.on('connection', (socket) => {
     console.log('user connected');
+
+    socket.emit('welcome', 'A message from the server');
   });
 
-  server.listen(3000);
+  console.log('console', process.env.PORT)
+  server.listen(process.env.PORT);
 }
 
 createCustomServer();
