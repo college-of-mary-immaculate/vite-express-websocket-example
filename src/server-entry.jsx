@@ -1,5 +1,5 @@
 import ReactDOMServer from 'react-dom/server'
-import { StaticRouter, Routes, Route } from 'react-router-dom'
+import { StaticRouter, Routes, Route } from 'react-router'
 import App from './App'
 
 export function render(url, context) {
