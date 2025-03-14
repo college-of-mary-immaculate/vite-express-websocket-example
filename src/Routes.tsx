@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes as ReactRoutes, Route } from 'react-router-dom';
+import { Routes as ReactRoutes, Route } from 'react-router';
 
 import App from './pages/home/homePage.jsx';
 
