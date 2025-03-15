@@ -20,7 +20,7 @@ async function createCustomServer() {
   let vite;
 
   if (IS_PRODUCTION) {
-    app.use(express.static(path.resolve(__dirname, './dist/client/')));
+    app.use(express.static(path.resolve(__dirname, './dist/client/'), { index: false }));
   } else {
     vite = await createViteServer({
       server: { middlewareMode: true },
