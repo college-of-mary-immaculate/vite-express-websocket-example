@@ -47,7 +47,7 @@ async function createCustomServer() {
 
       if (IS_PRODUCTION) {
         template = index;
-        render = import('./dist/server/server-entry.js').then(mod => mod.render);
+        render = await import('./dist/server/server-entry.js').then(mod => mod.render);
       } else {
         template = await vite.transformIndexHtml(url, index);
         render = (await vite.ssrLoadModule('/src/server-entry.jsx')).render;
